@@ -5,6 +5,8 @@ import eddyTurpo.exceptions.NotFoundEx;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 
+import java.util.UUID;
+
 public class EventDAO {
     private final EntityManager em;
 
@@ -20,13 +22,13 @@ public class EventDAO {
         System.out.println("L'evento " + event.getTitolo() + " è stato salvato correttamente");
     }
 
-    public Evento findByID(long id) {
+    public Evento findByID(UUID id) {
         Evento found = em.find(Evento.class, id);
         if (found == null) throw new NotFoundEx(id);
         return found;
     }
 
-    public void delete(long id) {
+    public void delete(UUID id) {
         Evento found = this.findByID(id);
         EntityTransaction transaction = em.getTransaction();
         transaction.begin();

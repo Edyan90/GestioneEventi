@@ -3,7 +3,6 @@ package eddyTurpo;
 import eddyTurpo.dao.EventDAO;
 import eddyTurpo.entities.Evento;
 import eddyTurpo.enums.EventType;
-import eddyTurpo.exceptions.NotFoundEx;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -22,8 +21,8 @@ public class Application {
 
         eventDAO.save(laurea);
 
-        try {
-            Evento laureaDB = eventDAO.findByID(1);
+        /*try {
+            Evento laureaDB = eventDAO.findByID();
             System.out.println(laureaDB);
         } catch (NotFoundEx e) {
             System.out.println(e.getMessage());
@@ -33,7 +32,7 @@ public class Application {
             eventDAO.delete(1);
         } catch (NotFoundEx e) {
             System.out.println(e.getMessage());
-        }
+        }*/
         em.close();
         emf.close();
     }
