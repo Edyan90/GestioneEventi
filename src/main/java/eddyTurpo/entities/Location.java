@@ -16,8 +16,8 @@ public class Location {
     @Column(name = "città")
     private String città;
 
-    @OneToMany(mappedBy = "id")
-    private List<Location> location_list;
+    @OneToMany(mappedBy = "location")
+    private List<Evento> eventi;
 
     public Location() {
     }
@@ -26,6 +26,10 @@ public class Location {
         this.nome = nome;
         this.città = città;
 
+    }
+
+    public Location(List<Evento> eventi) {
+        this.eventi = eventi;
     }
 
     public UUID getId() {
@@ -48,16 +52,13 @@ public class Location {
         this.città = città;
     }
 
-    public List<Location> getLocation_list() {
-        return location_list;
-    }
-
     @Override
     public String toString() {
         return "Location{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
                 ", città='" + città + '\'' +
+
                 '}';
     }
 }

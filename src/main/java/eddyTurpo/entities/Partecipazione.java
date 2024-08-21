@@ -11,10 +11,11 @@ public class Partecipazione {
     @Id
     @GeneratedValue
     private UUID id;
-    @Column(name = "persona")
-    private String persona;
-    @Column(name = "evento")
-    private String evento;
+    @ManyToOne
+    private Persona persona;
+
+    @ManyToOne
+    private Evento evento;
     @Column(name = "stato")
     private StatoType stato;
 
@@ -22,7 +23,7 @@ public class Partecipazione {
 
     }
 
-    public Partecipazione(String persona, UUID id, String evento, StatoType stato) {
+    public Partecipazione(Persona persona, UUID id, Evento evento, StatoType stato) {
         this.persona = persona;
         this.evento = evento;
         this.stato = stato;
@@ -32,19 +33,19 @@ public class Partecipazione {
         return id;
     }
 
-    public String getPersona() {
+    public Persona getPersona() {
         return persona;
     }
 
-    public void setPersona(String persona) {
+    public void setPersona(Persona persona) {
         this.persona = persona;
     }
 
-    public String getEvento() {
+    public Evento getEvento() {
         return evento;
     }
 
-    public void setEvento(String evento) {
+    public void setEvento(Evento evento) {
         this.evento = evento;
     }
 
@@ -61,7 +62,7 @@ public class Partecipazione {
         return "Partecipazione{" +
                 "id=" + id +
                 ", persona='" + persona + '\'' +
-                ", evento='" + evento + '\'' +
+
                 ", stato=" + stato +
                 '}';
     }
