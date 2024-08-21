@@ -1,4 +1,4 @@
-package eddyTurpo.entities;
+package eddyTurpo.enums;
 
 public enum EventType {
     PUBBLICO, PRIVATO

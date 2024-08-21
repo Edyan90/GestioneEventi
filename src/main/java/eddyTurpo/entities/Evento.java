@@ -1,15 +1,17 @@
 package eddyTurpo.entities;
 
+import eddyTurpo.enums.EventType;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Entity//qui vogliamo che la classe sia mappata ad una specifica tabella nel db
 @Table(name = "evento")
 public class Evento {
     @Id
     @GeneratedValue
-    private long id;
+    private UUID id;
     @Column(name = "titolo")
     private String titolo;
     @Column(name = "data_evento")
@@ -22,18 +24,23 @@ public class Evento {
     @Column(name = "numero_max_partecipanti")
     private long numeroMassimoPartecipanti;
 
+    @ManyToOne
+    @JoinColumn(name = "id", nullable = false)
+    private Location location_id;
+
     public Evento() {
     }
 
-    public Evento(String titolo, LocalDate dataEvento, String descrizione, EventType tipoEvento, long numeroMassimoPartecipanti) {
+    public Evento(String titolo, LocalDate dataEvento, String descrizione, EventType tipoEvento, long numeroMassimoPartecipanti, Location location_id) {
         this.titolo = titolo;
         this.dataEvento = dataEvento;
         this.descrizione = descrizione;
         this.tipoEvento = tipoEvento;
         this.numeroMassimoPartecipanti = numeroMassimoPartecipanti;
+        this.location_id = location_id;
     }
 
-    public long getId() {
+    public UUID getId() {
         return id;
     }
 
@@ -75,6 +82,10 @@ public class Evento {
 
     public void setNumeroMassimoPartecipanti(long numeroMassimoPartecipanti) {
         this.numeroMassimoPartecipanti = numeroMassimoPartecipanti;
+    }
+
+    public Location getLocation_id() {
+        return location_id;
     }
 
     @Override

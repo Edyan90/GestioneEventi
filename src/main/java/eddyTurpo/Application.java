@@ -1,8 +1,8 @@
 package eddyTurpo;
 
 import eddyTurpo.dao.EventDAO;
-import eddyTurpo.entities.EventType;
 import eddyTurpo.entities.Evento;
+import eddyTurpo.enums.EventType;
 import eddyTurpo.exceptions.NotFoundEx;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -19,6 +19,7 @@ public class Application {
         EventDAO eventDAO = new EventDAO(em);
 
         Evento laurea = new Evento("laurea", LocalDate.of(2023, 10, 10), "portate i pasticcini", EventType.PRIVATO, 50);
+
         eventDAO.save(laurea);
 
         try {
