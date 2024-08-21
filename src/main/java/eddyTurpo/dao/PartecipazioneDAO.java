@@ -34,7 +34,7 @@ public class PartecipazioneDAO {
         transaction.begin();
         pDao.remove(found);
         transaction.commit();
-        System.out.println("la location è stata rimossa!");
+        System.out.println("la partecipazione è stata rimossa!");
 
     }
 }

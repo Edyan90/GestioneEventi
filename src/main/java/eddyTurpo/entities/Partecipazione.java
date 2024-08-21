@@ -23,7 +23,7 @@ public class Partecipazione {
 
     }
 
-    public Partecipazione(Persona persona, UUID id, Evento evento, StatoType stato) {
+    public Partecipazione(Persona persona, Evento evento, StatoType stato) {
         this.persona = persona;
         this.evento = evento;
         this.stato = stato;
@@ -61,8 +61,8 @@ public class Partecipazione {
     public String toString() {
         return "Partecipazione{" +
                 "id=" + id +
-                ", persona='" + persona + '\'' +
-
+                ", persona=" + persona +
+                ", evento=" + evento +
                 ", stato=" + stato +
                 '}';
     }

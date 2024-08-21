@@ -19,7 +19,7 @@ public class PersonaDAO {
         transaction.begin();
         personaDao.persist(persona);
         transaction.commit();
-        System.out.println("La partecipazione con ID:  " + persona.getId() + " è stato salvato correttamente");
+        System.out.println("La persona con ID:  " + persona.getId() + " è stato salvato correttamente");
     }
 
     public Persona findByID(UUID id) {
@@ -34,7 +34,7 @@ public class PersonaDAO {
         transaction.begin();
         personaDao.remove(found);
         transaction.commit();
-        System.out.println("la location è stata rimossa!");
+        System.out.println("la persona è stata rimossa!");
 
     }
 }
